@@ -2,7 +2,7 @@ FROM ubuntu:16.04
 MAINTAINER limingyuan<mingyuan0702@126.com>
 
 RUN apt-get update && apt-get install python-pip
-RUN pip install git+https://github.com/shadowsocks/shadowsocks.git@master
+RUN pip install shadowsocks
 
 ADD entrypoint.sh /entrypoint.sh
 
