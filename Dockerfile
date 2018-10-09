@@ -1,13 +1,13 @@
-# shadowsocks
-#
-# VERSION 0.0.3
-
 FROM ubuntu:16.04
-MAINTAINER Dariel Dato-on <oddrationale@gmail.com>
+MAINTAINER limingyuan<mingyuan0702@126.com>
 
-RUN apt-get update && \
-    apt-get install -y python-pip libsodium18
-RUN pip install shadowsocks==2.8.2
+RUN apt-get update && apt-get install python-pip
+RUN pip install git+https://github.com/shadowsocks/shadowsocks.git@master
 
-# Configure container to run as an executable
-ENTRYPOINT ["/usr/local/bin/ssserver"]
+ADD entrypoint.sh /entrypoint.sh
+
+RUN chmod +x /entrypoint.sh 
+
+ENTRYPOINT  /entrypoint.sh 
+
+EXPOSE 8080
