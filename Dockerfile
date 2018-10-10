@@ -5,6 +5,7 @@ RUN apt-get update && \
     apt-get install -y python-pip libsodium18
 RUN pip install shadowsocks
 
+ADD config.json /config.json
 ADD entrypoint.sh /entrypoint.sh
 
 RUN chmod +x /entrypoint.sh 
